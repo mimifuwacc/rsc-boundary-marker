@@ -2,7 +2,7 @@
   "name": "rsc-boundary-marker",
   "displayName": "rsc-boundary-marker",
   "description": "Visualize the boundary between RSC and Client Component",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "mimifuwacc",
   "engines": {
     "vscode": "^1.105.0"
@@ -26,6 +26,8 @@
     "test": "vscode-test"
   },
   "devDependencies": {
+    "@semantic-release/exec": "^7.1.0",
+    "@semantic-release/git": "^10.0.1",
     "@types/babel__traverse": "^7.28.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
@@ -35,8 +37,10 @@
     "@vscode/test-cli": "^0.0.11",
     "@vscode/test-electron": "^2.5.2",
     "eslint": "^9.36.0",
+    "semantic-release": "^24.2.9",
     "ts-loader": "^9.5.4",
     "typescript": "^5.9.3",
+    "vsce": "^2.15.0",
     "webpack": "^5.102.0",
     "webpack-cli": "^6.0.1"
   },
