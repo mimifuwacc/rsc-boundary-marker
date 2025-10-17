@@ -3,6 +3,7 @@
   "displayName": "rsc-boundary-marker",
   "description": "Visualize the boundary between RSC and Client Component",
   "version": "0.0.1",
+  "publisher": "mimifuwacc",
   "engines": {
     "vscode": "^1.105.0"
   },
@@ -33,7 +34,10 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "package:extension": "pnpm dlx vsce package",
+    "publish:extension": "pnpm dlx vsce publish",
+    "version": "pnpm dlx vsce version"
   },
   "devDependencies": {
     "@types/babel__traverse": "^7.28.0",
@@ -50,9 +54,13 @@
     "webpack": "^5.102.0",
     "webpack-cli": "^6.0.1"
   },
-  "packageManager": "pnpm@10.18.1+sha512.77a884a165cbba2d8d1c19e3b4880eee6d2fcabd0d879121e282196b80042351d5eb3ca0935fa599da1dc51265cc68816ad2bddd2a2de5ea9fdf92adbec7cd34",
+  "packageManager": "pnpm@10.18.1",
   "dependencies": {
     "@babel/parser": "^7.28.4",
     "@babel/traverse": "^7.28.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mimifuwacc/rsc-boundary-marker.git"
   }
 }

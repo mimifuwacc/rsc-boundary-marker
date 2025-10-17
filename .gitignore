@@ -1,5 +1,27 @@
+# Build outputs
 out
 dist
-node_modules
 .vscode-test/
+
+# Dependencies
+node_modules
+
+# Extension package
 *.vsix
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.test
+
+# ESLint cache
+.eslintcache
