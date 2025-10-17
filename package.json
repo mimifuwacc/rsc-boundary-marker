@@ -2,7 +2,7 @@
   "name": "rsc-boundary-marker",
   "displayName": "rsc-boundary-marker",
   "description": "Visualize the boundary between RSC and Client Component",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "mimifuwacc",
   "engines": {
     "vscode": "^1.105.0"
