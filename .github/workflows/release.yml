@@ -16,25 +16,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "24.9.0"
-          cache: "pnpm"
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: latest
+          node-version-file: '.node-version'
+          cache: "npm"
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Build extension
-        run: pnpm run compile
+        run: npm run compile
 
       - name: Package extension
-        run: pnpm dlx vsce package
+        run: npx vsce package
 
       - name: Release to VSCode Marketplace
-        run: pnpm dlx vsce publish
+        run: npx vsce publish
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
 

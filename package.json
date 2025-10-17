@@ -7,37 +7,23 @@
   "engines": {
     "vscode": "^1.105.0"
   },
-  "categories": [
+    "categories": [
     "Other"
   ],
   "activationEvents": [
     "onLanguage:typescriptreact",
-    "onLanguage:javascriptreact",
-    "onLanguage:typescript",
-    "onLanguage:javascript"
+    "onLanguage:javascriptreact"
   ],
   "main": "./dist/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "rsc-boundary-marker.helloWorld",
-        "title": "Hello World"
-      }
-    ]
-  },
+  "contributes": {},
   "scripts": {
-    "vscode:prepublish": "pnpm run package",
     "compile": "webpack",
     "watch": "webpack --watch",
-    "package": "webpack --mode production --devtool hidden-source-map",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "lint": "eslint src",
-    "test": "vscode-test",
-    "package:extension": "pnpm dlx vsce package",
-    "publish:extension": "pnpm dlx vsce publish",
-    "version": "pnpm dlx vsce version"
+    "test": "vscode-test"
   },
   "devDependencies": {
     "@types/babel__traverse": "^7.28.0",
@@ -54,10 +40,10 @@
     "webpack": "^5.102.0",
     "webpack-cli": "^6.0.1"
   },
-  "packageManager": "pnpm@10.18.1",
+  "packageManager": "npm@11.6.0",
   "dependencies": {
-    "@babel/parser": "^7.28.4",
-    "@babel/traverse": "^7.28.4"
+    "@babel/parser": "^7.25.4",
+    "@babel/traverse": "^7.25.4"
   },
   "repository": {
     "type": "git",
