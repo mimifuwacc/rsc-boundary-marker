@@ -22,9 +22,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "npm version ${nextRelease.version} --no-git-tag-version --allow-same-version && npm run compile && npx vsce package --out rsc-boundary-marker-${nextRelease.version}.vsix"
-      },
-      {
+        "prepareCmd": "npm version ${nextRelease.version} --no-git-tag-version --allow-same-version && npm run compile && npx vsce package --out rsc-boundary-marker-${nextRelease.version}.vsix",
         "publishCmd": "if [ -n \"$VSCE_PAT\" ]; then npx vsce publish --pat $VSCE_PAT; else echo 'VSCE_PAT not found, skipping marketplace publish'; fi"
       }
     ],
