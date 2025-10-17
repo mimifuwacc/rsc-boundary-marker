@@ -5,13 +5,19 @@ on:
 
 permissions:
   contents: write
+  issues: write
+  pull-requests: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -22,34 +28,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Get version from package.json
-        id: get-version
-        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+      - name: Setup semantic-release
+        run: |
+          npm install --save-dev semantic-release @semantic-release/git @semantic-release/exec
 
-      - name: Build extension
-        run: npm run compile
+      - name: Install vsce for packaging
+        run: npm install --save-dev vsce
 
-      - name: Package extension
-        run: npx vsce package
-
-      - name: Release to VSCode Marketplace
-        run: npx vsce publish
-        env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: extension-vsix
-          path: "*.vsix"
-          retention-days: 30
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: v${{ steps.get-version.outputs.version }}
-          name: Release v${{ steps.get-version.outputs.version }}
-          files: "*.vsix"
-          generate_release_notes: true
+      - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: npx semantic-release
