@@ -5,7 +5,7 @@ Visualize the `'use client'` boundary in your React codebase from the caller's s
 ## Features
 
 - **Automatic Detection**: Automatically identifies Components with `'use client'` imported in your React components
-- **Visual Markers**: Shows clear visual indicators (`Client Component`) next to the Components with `'use client'`.
+- **Visual Markers**: Shows clear visual indicators (`'use client'`) next to the Components with `'use client'`.
 
 ## How It Works
 
@@ -24,7 +24,7 @@ import Button from './components/Button'
 export default function Page() {
   return (
     <div>
-      <Button /> Client Component
+      <Button /> 'use client'
       {/* Marker shows this is a Client Component */}
     </div>
   )
@@ -39,7 +39,7 @@ export default function Page() {
 
 ## Requirements
 
-- Visual Studio Code 1.105.0 or higher
+- Visual Studio Code 1.99.0 or higher
 - Cursor 1.7 or higher
 
 ---
