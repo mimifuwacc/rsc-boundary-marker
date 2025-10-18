@@ -40,6 +40,7 @@ export default function Page() {
 ## Requirements
 
 - Visual Studio Code 1.105.0 or higher
+- Cursor 1.7 or higher
 
 ---
 
