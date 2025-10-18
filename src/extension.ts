@@ -8,7 +8,7 @@ import { findClientComponentUsages } from "./utils/rsc-detector";
 export function activate(context: vscode.ExtensionContext) {
   const decorationType = vscode.window.createTextEditorDecorationType({
     after: {
-      contentText: "Client Component",
+      contentText: "'use client'",
       color: "rgba(153, 153, 153, 0.7)",
       margin: "0 0 0 1.5rem",
     },
