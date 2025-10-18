@@ -5,7 +5,7 @@
   "version": "0.0.8",
   "publisher": "mimifuwacc",
   "engines": {
-    "vscode": "^1.105.0"
+    "vscode": "^1.99.0"
   },
   "categories": [
     "Other"
