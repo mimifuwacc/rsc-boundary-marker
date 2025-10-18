@@ -51,16 +51,30 @@ export function activate(context: vscode.ExtensionContext) {
   updateDecorations();
 }
 
+const isUseClientDirective = (content: string): boolean => {
+  try {
+    const ast = parser.parse(content, {
+      sourceType: "module",
+      plugins: ["jsx", "typescript"],
+    });
+
+    // Check for 'use client' directive
+    return ast.program.directives.some(
+      (directive: any) =>
+        directive.value.type === "DirectiveLiteral" &&
+        directive.value.value === "use client"
+    );
+  } catch {
+    return false;
+  }
+};
+
 const findClientComponentUsages = (
   document: vscode.TextDocument
 ): vscode.Range[] => {
   const content = document.getText();
 
-  const trimmedContent = content.trimStart();
-  if (
-    trimmedContent.startsWith('"use client"') ||
-    trimmedContent.startsWith("'use client'")
-  ) {
+  if (isUseClientDirective(content)) {
     return [];
   }
 
@@ -87,12 +101,8 @@ const findClientComponentUsages = (
         if (fs.existsSync(filePath)) {
           try {
             const fileContent = fs.readFileSync(filePath, "utf-8");
-            const trimmedFileContent = fileContent.trimStart();
 
-            if (
-              trimmedFileContent.startsWith('"use client"') ||
-              trimmedFileContent.startsWith("'use client'")
-            ) {
+            if (isUseClientDirective(fileContent)) {
               nodePath.node.specifiers.forEach((specifier) => {
                 if (
                   specifier.type === "ImportDefaultSpecifier" ||
