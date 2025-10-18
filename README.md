@@ -1,15 +1,15 @@
 # RSC Boundary Marker
 
-Visualize the boundary between RSC (React Server Components) and Client Components in your React codebase.
+Visualize the `'use client'` boundary in your React codebase from the caller's side.
 
 ## Features
 
-- **Automatic Detection**: Automatically identifies Client Component imports in your React components
-- **Visual Markers**: Shows clear visual indicators (`Client Component`) next to Client Components
+- **Automatic Detection**: Automatically identifies Components with `'use client'` impoted and rendered in your React components
+- **Visual Markers**: Shows clear visual indicators (`Client Component`) next to the Components with `'use client'`.
 
 ## How It Works
 
-The extension scans your React files and marks any usage of Client Components (files with `"use client"` directive) with a visual indicator.
+The extension scans your React files and marks any usage of Components with `"use client"` directive, and mark them with a visual indicator.
 
 ```jsx
 // File with "use client" directive
