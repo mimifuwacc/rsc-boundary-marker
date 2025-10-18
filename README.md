@@ -4,7 +4,7 @@ Visualize the `'use client'` boundary in your React codebase from the caller's s
 
 ## Features
 
-- **Automatic Detection**: Automatically identifies Components with `'use client'` impoted and rendered in your React components
+- **Automatic Detection**: Automatically identifies Components with `'use client'` imported in your React components
 - **Visual Markers**: Shows clear visual indicators (`Client Component`) next to the Components with `'use client'`.
 
 ## How It Works
